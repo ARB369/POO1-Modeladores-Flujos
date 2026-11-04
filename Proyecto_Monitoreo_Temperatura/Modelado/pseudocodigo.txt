@@ -1,0 +1,47 @@
+INICIO
+//Variables iniciales que nos dan los límites del programa y la opción de iniciarlo
+    temperaturaMinima = 2.0
+    temperaturaMaxima = 5.0
+    opcion = 1
+
+
+
+// aqui la ejecucion es constante para que el usuario mida cuantos alimentos quiera
+    MIENTRAS opcion == 1 HACER
+
+        SOLICITAR temperatura //double para permitir datos como 3.5
+// Se crea un condicional para prevenir errores como un tipo de dato invalido por ejemplo copiar “Hola” en vez de un dato numero y que la temperatura sea menor a 0
+        SI la entrada no es numérica ENTONCES
+            MOSTRAR "Error: ingrese un valor válido"
+            DESCARTAR entrada inválida
+
+        SINO SI temperatura < 0 ENTONCES
+            MOSTRAR "Temperatura inválida"
+
+        SINO
+//ahora se anida otro condicional que ahora sí mide si el alimento se encuentra a una temperatura elevada o muy baja y toma la decision correspondiente
+            SI temperatura > temperaturaMaxima ENTONCES
+                MOSTRAR "Temperatura elevada"
+                MOSTRAR "Activando refrigeración"
+
+            SINO SI temperatura < temperaturaMinima ENTONCES
+                MOSTRAR "Temperatura demasiado baja"
+                MOSTRAR "Revisar sistema de refrigeración"
+
+            SINO
+                MOSTRAR "Temperatura adecuada"
+            FIN SI
+
+        FIN SI
+// aqui da la opcion al usuario de continuar el programa, es decir, continuar con el mientras que nos da la ejecucion constante
+        SOLICITAR opción:
+            1. Continuar
+            2. Finalizar
+
+        VALIDAR opción
+
+    FIN MIENTRAS
+// al seleccionar finalizar saca el mensaje de cierre y finaliza la ejecucion
+    MOSTRAR "Monitoreo finalizado"
+
+FIN
